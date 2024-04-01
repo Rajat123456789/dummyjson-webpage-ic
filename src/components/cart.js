@@ -35,7 +35,7 @@ const Cart = () => {
             <p>{item.title}</p>
           </div>
           <div>
-            <span>{"Price : " + item.price}</span>
+            <span>{" $ " + item.price}</span>
             <button
               className="btn btn-danger d-flex"
               onClick={(e) => handleRemove(e, item)}
@@ -48,7 +48,7 @@ const Cart = () => {
       <div className="text-dark d-flex justify-content-between mt-4">
         <h3>Total Price of your Cart</h3>
         <Button className="btn-dark">
-          <span> USD {price}</span>
+          <span> $ {price}</span>
         </Button>
       </div>
     </article>

@@ -5,7 +5,6 @@ import axios from "axios";
 import PaginationRounded from "./pagination";
 import CustomLoader from "./Loader";
 
-
 const Main = ({ handleClick, handlePdp }) => {
   const [allProducts, setAllProducts] = useState();
   const [productList, setProductList] = useState();
@@ -45,15 +44,11 @@ const Main = ({ handleClick, handlePdp }) => {
 
   console.log(`productList`, productList);
   console.log(`allProducts`, allProducts);
-
-
   return (
     <>
-      <div className="mt-5 d-flex justify-content-center">
-      <div className="d-flex justify-content-center">
-    <PaginationRounded setPage={setPage} />
-  </div>        
-      </div>
+      <section>
+      <PaginationRounded setPage={setPage} />
+      </section>
       <section>
         {isLoading ? (
           <CustomLoader />
@@ -75,5 +70,4 @@ const Main = ({ handleClick, handlePdp }) => {
     </>
   );
 };
-
 export default Main;

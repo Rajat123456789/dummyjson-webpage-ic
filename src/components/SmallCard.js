@@ -48,7 +48,7 @@ export default function SmallCard({
           color="text.primary"
           sx={{ fontSize: 17, marginBottom: 1 }}
         >
-          {"USD " + price + " "}
+          {"$ " + price + " "}
         </Typography>
         <Typography variant="body2" color="text.secondary">
           {description}

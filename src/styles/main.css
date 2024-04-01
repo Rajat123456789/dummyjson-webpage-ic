@@ -15,13 +15,6 @@ section {
   width: 200px;
   padding: 20px;
 }
-.cards:hover {
-  box-shadow: 3px 5px 10px rgb(247, 246, 246) inset;
-  cursor: pointer;
-  background-color: rgb(62, 60, 60);
-  color: whitesmoke;
-  border: 1px solid rgb(168, 194, 26);
-}
 .image_box img {
   width: 150px;
   height: 200px;
@@ -31,44 +24,4 @@ section {
   width: 150px;
   height: 200px;
 }
-/* .details p:nth-child(1) {
-  font-weight: bold;
-}
-.details p:nth-child(2) {
-  color: grey;
-  font-size: 0.8rem;
-}
-.details p:nth-child(3) {
-  font-weight: bold;
-  color: grey;
-}
-.details {
-  margin-top: 10px;
-}
-.details button {
-  padding: 5px 10px;
-  border: none;
-  font-weight: bold;
-  background-color: rgb(230, 223, 28);
-  outline: none;
-}
-.edit {
-  padding: 5px 10px;
-  border: none;
-  font-weight: bold;
-  background-color: black;
-  outline: none;
-  color: white;
-}
-.edit:hover {
-  padding: 5px 10px;
-  border: none;
-  font-weight: bold;
-  background-color: rgb(255, 255, 255);
-  outline: auto;
-  color: black;
-}
-.details button:hover {
-  /* background-color: rgb(18, 234, 54); */
-  /* outline: auto;
-} */ 
+

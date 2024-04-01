@@ -65,10 +65,7 @@ function App() {
             >
 
             </Route>
-
-
           </Routes>
-          
           <ToastNotification />
         </div>
       </Router>

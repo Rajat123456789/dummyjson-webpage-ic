@@ -11,7 +11,7 @@ export default function PaginationRounded({ setPage }) {
   };
   console.log(`currentPage`, currentPage);
   return (
-    <Stack spacing={5}>
+    <Stack spacing={2}>
       <div className="">
         <Pagination
           count={10}

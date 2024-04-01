@@ -14,11 +14,6 @@ const Navbar = () => {
       <div className="nav_box">
         <span className="my_shop">
 
-          {/* <Link to={`/`} style={{ color: "#f4898b", textDecoration: "none", fontWeight:"bolder", fontSize:"30px" }}>
-            E-commerce
-          </Link> */}
-
-
           <Link
             to={`/`}
             style={{
@@ -30,13 +25,6 @@ const Navbar = () => {
           >
             RJT
           </Link>
-
-          {/* <Link to={`/addProduct`} style={{ textDecoration: "none",color: "white",marginLeft: "40px",fontSize:"20px" }}>
-            <span className="mx-5 text-white" style={{ fontSize: "20px" }}>
-              Add a Product <span class="icons"><FontAwesomeIcon icon={faPlus} /></span>
-            </span>
-          </Link> */}
-
 
         </span>
         <div className="cart">
