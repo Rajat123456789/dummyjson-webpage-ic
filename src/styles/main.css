@@ -52,7 +52,6 @@ section {
   margin-top: 20px;
 }
 
-/* Category Selector Styles */
 .category-tabs {
   display: inline;
   justify-content: center;
@@ -60,7 +59,7 @@ section {
 }
 
 .categories button {
-  background-color: #e7e7e7; /* Lighter grey for buttons */
+  background-color: #e7e7e7; 
   border: none;
   outline: none;
   padding: 10px 20px;
@@ -70,18 +69,17 @@ section {
 }
 
 .categories button:hover {
-  background-color: #ddd; /* Darken button on hover */
+  background-color: #ddd; 
 }
 
 .categories button.active {
-  background-color: #007bff; /* Blue for active tab */
+  background-color: #007bff; 
   color: white;
 }
 
-/* Responsive adjustments */
 @media (max-width: 768px) {
   .categories button {
-    padding: 8px 16px; /* Slightly smaller buttons on smaller screens */
+    padding: 8px 16px; 
   }
 }
 .category-selector {
@@ -89,7 +87,6 @@ section {
   background-color: #f0f0f0;
   text-align: center;
 }
-/* main.css */
 .tab {
   padding: 8px 16px;
   background-color: #f0f0f0;
@@ -102,5 +99,5 @@ section {
 .tab.active {
   background-color: #ddd ; 
   color: black; 
-  font-weight: bold; /* Optional: make the text bold */
+  font-weight: bold; 
 }
