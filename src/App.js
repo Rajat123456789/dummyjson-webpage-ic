@@ -45,7 +45,9 @@ function App() {
       <Router>
         <Navbar />
         <div className="container">
+
           <Routes>
+
             <Route
               exact
               path="/"
@@ -64,9 +66,15 @@ function App() {
               }
             >
 
+            <Route>
+              exact
+              path 
+            </Route>
+
             </Route>
           </Routes>
           <ToastNotification />
+
         </div>
       </Router>
     </>

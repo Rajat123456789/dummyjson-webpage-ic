@@ -4,6 +4,7 @@ import "../styles/main.css";
 import axios from "axios";
 import PaginationRounded from "./pagination";
 import CustomLoader from "./Loader";
+import search from "./search";
 
 const Main = ({ handleClick, handlePdp }) => {
   const [allProducts, setAllProducts] = useState();
@@ -27,10 +28,31 @@ const Main = ({ handleClick, handlePdp }) => {
       } finally {
         setTimeout(() => {
           setLoading(false);
-        }, 4500);
+        }, 2500);
       }
     })();
   }, []);
+
+  // search functionality
+
+  const handleSearch = (e) => {
+    const searchValue = e.target.value;
+    const searchProduct = allProducts.filter((item) =>
+      item.title.toLowerCase().includes(searchValue.toLowerCase())
+    );
+    setProductList(searchProduct);
+    setSorting(true);
+    if (searchValue === "") {
+      setProductList(allProducts);
+      // with pagination
+      const pageChangeProduct = allProducts?.slice(page * 10 - 10, 10 * page);
+      setProductList(pageChangeProduct);
+    }
+  }
+
+  // search by category
+  
+
 
   useEffect(() => {
     setLoading(true);
@@ -49,6 +71,17 @@ const Main = ({ handleClick, handlePdp }) => {
       <section>
       <PaginationRounded setPage={setPage} />
       </section>
+
+      <section>
+        <div className="search">
+          <input
+            type="text"
+            placeholder="Search for products"
+            onChange={handleSearch}
+          />
+        </div>
+      </section>
+
       <section>
         {isLoading ? (
           <CustomLoader />
