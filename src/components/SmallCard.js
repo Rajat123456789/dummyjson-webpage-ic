@@ -26,7 +26,7 @@ export default function SmallCard({
     <Card sx={{ maxWidth: 330, marginRight: "auto", marginTop: 5 }}>
       <CardHeader
         avatar={
-          <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
+          <Avatar sx={{ bgcolor: "#4d6fc4" }} aria-label="recipe">
             RJT
           </Avatar>
         }
@@ -61,9 +61,9 @@ export default function SmallCard({
           variant="outlined"
           sx={{
             marginTop: "auto",
-            color: "red",
-            borderColor: "red",
-            outlineColor: "red",
+            color: "#4d6fc4",
+            borderColor: "#4d5fc4",
+            outlineColor: "#4d7fc6",
           }}
           fullWidth
           className="add-to-cart"

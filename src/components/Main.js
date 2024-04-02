@@ -5,6 +5,7 @@ import axios from "axios";
 import PaginationRounded from "./pagination";
 import CustomLoader from "./Loader";
 import search from "./search";
+import { LoadingButton } from "@mui/lab";
 
 const categories = [
   "smartphones",
@@ -73,8 +74,6 @@ const Main = ({ handleClick, handlePdp }) => {
     }
   };
 
-
-
   const handleSearch = (e) => {
     const searchValue = e.target.value;
     const searchProduct = allProducts.filter((item) =>
@@ -88,9 +87,6 @@ const Main = ({ handleClick, handlePdp }) => {
       setProductList(pageChangeProduct);
     }
   }
-
-  
-
 
   useEffect(() => {
     setLoading(true);
@@ -106,47 +102,28 @@ const Main = ({ handleClick, handlePdp }) => {
   console.log(`allProducts`, allProducts);
   return (
     <>
-<section>
+<section className="first-thing">
   <div className="pagination-container">
     <PaginationRounded setPage={setPage} />
   </div>
+
   <div className="search-container">
     <input type="text" placeholder="Search for products" onChange={handleSearch} />
   </div>
 </section>
-
-      {/* <section>
-        {isLoading ? (
-          <CustomLoader />
-        ) : (
-          <>
-            {productList?.map((item) => (
-              <SmallCard
-                key={item.id}
-                item={item}
-                handleClick={handleClick}
-                setProductList={setProductList}
-                productList={productList}
-                handlePdp={handlePdp}
-              />
-            ))}
-          </>
-        )}
-      </section> */}
-
-      
-
-      <div className="category-tabs">
+<section>
+<div className="category-tabs">
         {categories.map((category) => (
-          <button
+          <LoadingButton
             key={category}
             className={`tab ${selectedCategory === category ? "active" : ""}`}
             onClick={() => setSelectedCategory(category)}
           >
             {category}
-          </button>
+          </LoadingButton>
         ))}
       </div>
+</section>
       <section>
         {isLoading ? (
           <CustomLoader />
@@ -161,9 +138,6 @@ const Main = ({ handleClick, handlePdp }) => {
           ))
         )}
       </section>
-
-
-
     </>
   );
 };

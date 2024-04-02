@@ -84,9 +84,9 @@ const Cart = () => {
           variant="outlined"
           sx={{
             marginTop: "auto",
-            color: "red",
-            borderColor: "red",
-            outlineColor: "red",
+            color: "#2947f1",
+            borderColor: "#29f1d7",
+            outlineColor: "#29f1d7",
           }}
           fullWidth
           loading={isLoading}
