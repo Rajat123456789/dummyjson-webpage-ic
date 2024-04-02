@@ -7,29 +7,6 @@ import CustomLoader from "./Loader";
 import search from "./search";
 import { LoadingButton } from "@mui/lab";
 
-const categories = [
-  "smartphones",
-  "laptops",
-  "fragrances",
-  "skincare",
-  "groceries",
-  "home-decoration",
-  "furniture",
-  "tops",
-  "womens-dresses",
-  "womens-shoes",
-  "mens-shirts",
-  "mens-shoes",
-  "mens-watches",
-  "womens-watches",
-  "womens-bags",
-  "womens-jewellery",
-  "sunglasses",
-  "automotive",
-  "motorcycle",
-  "lighting",
-];
-
 const Main = ({ handleClick, handlePdp }) => {
   const [allProducts, setAllProducts] = useState();
   const [productList, setProductList] = useState();
@@ -37,6 +14,7 @@ const Main = ({ handleClick, handlePdp }) => {
   const [page, setPage] = useState(1);
   const [isSorting, setSorting] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState("");
+  const [categories, setCategories] = useState([]);
 
   useEffect(() => {
     (async function fetchProductList() {
@@ -45,7 +23,6 @@ const Main = ({ handleClick, handlePdp }) => {
           `https://dummyjson.com/products?limit=100`
         );
         const slicedProduct = data?.products?.slice(0, 10);
-
         setAllProducts(data.products);
         setProductList(slicedProduct);
       } catch (error) {
@@ -56,6 +33,14 @@ const Main = ({ handleClick, handlePdp }) => {
         }, 2500);
       }
     })();
+
+    fetch('https://dummyjson.com/products/categories')
+      .then(res => res.json())
+      .then(data => {
+        console.log(data); 
+        setCategories(data);
+      })
+      .catch(error => console.error('Error fetching categories:', error));
   }, []);
 
   useEffect(() => {
@@ -65,7 +50,9 @@ const Main = ({ handleClick, handlePdp }) => {
   const fetchProductsByCategory = async (category) => {
     setLoading(true);
     try {
-      const response = await axios.get(`https://dummyjson.com/products/category/${category}`);
+      const response = await axios.get(
+        `https://dummyjson.com/products/category/${category}`
+      );
       setProductList(response.data.products);
     } catch (error) {
       console.error("Error fetching products by category", error);
@@ -100,30 +87,34 @@ const Main = ({ handleClick, handlePdp }) => {
 
   console.log(`productList`, productList);
   console.log(`allProducts`, allProducts);
+
   return (
     <>
-<section className="first-thing">
-  <div className="pagination-container">
-    <PaginationRounded setPage={setPage} />
-  </div>
-
-  <div className="search-container">
-    <input type="text" placeholder="Search for products" onChange={handleSearch} />
-  </div>
-</section>
-<section>
-<div className="category-tabs">
-        {categories.map((category) => (
-          <LoadingButton
-            key={category}
-            className={`tab ${selectedCategory === category ? "active" : ""}`}
-            onClick={() => setSelectedCategory(category)}
-          >
-            {category}
-          </LoadingButton>
-        ))}
-      </div>
-</section>
+      <section className="first-thing">
+        <div className="pagination-container">
+          <PaginationRounded setPage={setPage} />
+        </div>
+        <div className="search-container">
+          <input
+            type="text"
+            placeholder="Search for products"
+            onChange={handleSearch}
+          />
+        </div>
+      </section>
+      <section>
+        <div className="category-tabs">
+          {categories.map((category, index) => (
+            <LoadingButton
+              key={index}
+              className={`tab ${selectedCategory === category ? "active" : ""}`}
+              onClick={() => setSelectedCategory(category)}
+            >
+              {category}
+            </LoadingButton>
+          ))}
+        </div>
+      </section>
       <section>
         {isLoading ? (
           <CustomLoader />
@@ -141,4 +132,5 @@ const Main = ({ handleClick, handlePdp }) => {
     </>
   );
 };
+
 export default Main;
