@@ -51,3 +51,36 @@ section {
   align-items: center;
   margin-top: 20px;
 }
+
+/* Category Selector Styles */
+.category-selector {
+  padding: 20px 0;
+  background-color: #f1f1f1; /* Light grey background */
+  text-align: center; /* Center the tabs */
+}
+
+.categories button {
+  background-color: #e7e7e7; /* Lighter grey for buttons */
+  border: none;
+  outline: none;
+  padding: 10px 20px;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.categories button:hover {
+  background-color: #ddd; /* Darken button on hover */
+}
+
+.categories button.active {
+  background-color: #007bff; /* Blue for active tab */
+  color: white;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .categories button {
+    padding: 8px 16px; /* Slightly smaller buttons on smaller screens */
+  }
+}

@@ -6,12 +6,36 @@ import PaginationRounded from "./pagination";
 import CustomLoader from "./Loader";
 import search from "./search";
 
+const categories = [
+  "smartphones",
+  "laptops",
+  "fragrances",
+  "skincare",
+  "groceries",
+  "home-decoration",
+  "furniture",
+  "tops",
+  "womens-dresses",
+  "womens-shoes",
+  "mens-shirts",
+  "mens-shoes",
+  "mens-watches",
+  "womens-watches",
+  "womens-bags",
+  "womens-jewellery",
+  "sunglasses",
+  "automotive",
+  "motorcycle",
+  "lighting",
+];
+
 const Main = ({ handleClick, handlePdp }) => {
   const [allProducts, setAllProducts] = useState();
   const [productList, setProductList] = useState();
   const [isLoading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
   const [isSorting, setSorting] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState("smartphones");
 
   useEffect(() => {
     (async function fetchProductList() {
@@ -32,6 +56,23 @@ const Main = ({ handleClick, handlePdp }) => {
       }
     })();
   }, []);
+
+  useEffect(() => {
+    fetchProductsByCategory(selectedCategory);
+  }, [selectedCategory]);
+
+  const fetchProductsByCategory = async (category) => {
+    setLoading(true);
+    try {
+      const response = await axios.get(`https://dummyjson.com/products/category/${category}`);
+      setProductList(response.data.products);
+    } catch (error) {
+      console.error("Error fetching products by category", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
 
 
   const handleSearch = (e) => {
@@ -74,7 +115,7 @@ const Main = ({ handleClick, handlePdp }) => {
   </div>
 </section>
 
-      <section>
+      {/* <section>
         {isLoading ? (
           <CustomLoader />
         ) : (
@@ -91,7 +132,38 @@ const Main = ({ handleClick, handlePdp }) => {
             ))}
           </>
         )}
+      </section> */}
+
+      
+
+      <div className="category-tabs">
+        {categories.map((category) => (
+          <button
+            key={category}
+            className={`tab ${selectedCategory === category ? "active" : ""}`}
+            onClick={() => setSelectedCategory(category)}
+          >
+            {category}
+          </button>
+        ))}
+      </div>
+      <section>
+        {isLoading ? (
+          <CustomLoader />
+        ) : (
+          productList.map((item) => (
+            <SmallCard
+              key={item.id}
+              item={item}
+              handleClick={handleClick}
+              handlePdp={handlePdp}
+            />
+          ))
+        )}
       </section>
+
+
+
     </>
   );
 };
