@@ -36,7 +36,7 @@ const Main = ({ handleClick, handlePdp }) => {
   const [isLoading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
   const [isSorting, setSorting] = useState(false);
-  const [selectedCategory, setSelectedCategory] = useState("smartphones");
+  const [selectedCategory, setSelectedCategory] = useState("");
 
   useEffect(() => {
     (async function fetchProductList() {
