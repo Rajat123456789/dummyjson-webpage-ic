@@ -33,7 +33,6 @@ const Main = ({ handleClick, handlePdp }) => {
     })();
   }, []);
 
-  // search functionality
 
   const handleSearch = (e) => {
     const searchValue = e.target.value;
@@ -44,13 +43,11 @@ const Main = ({ handleClick, handlePdp }) => {
     setSorting(true);
     if (searchValue === "") {
       setProductList(allProducts);
-      // with pagination
       const pageChangeProduct = allProducts?.slice(page * 10 - 10, 10 * page);
       setProductList(pageChangeProduct);
     }
   }
 
-  // search by category
   
 
 
@@ -68,19 +65,14 @@ const Main = ({ handleClick, handlePdp }) => {
   console.log(`allProducts`, allProducts);
   return (
     <>
-      <section>
-      <PaginationRounded setPage={setPage} />
-      </section>
-
-      <section>
-        <div className="search">
-          <input
-            type="text"
-            placeholder="Search for products"
-            onChange={handleSearch}
-          />
-        </div>
-      </section>
+<section>
+  <div className="pagination-container">
+    <PaginationRounded setPage={setPage} />
+  </div>
+  <div className="search-container">
+    <input type="text" placeholder="Search for products" onChange={handleSearch} />
+  </div>
+</section>
 
       <section>
         {isLoading ? (
