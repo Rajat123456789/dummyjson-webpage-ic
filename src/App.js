@@ -8,7 +8,6 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { addcartItem } from "./Redux/CartSlice";
 import { useDispatch } from "react-redux";
 
-
 function App() {
   const [cart, setCart] = useState([]);
   const [productDetailspage, setProductDetailspage] = useState();

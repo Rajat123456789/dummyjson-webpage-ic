@@ -4,7 +4,6 @@ import "../styles/main.css";
 import axios from "axios";
 import PaginationRounded from "./pagination";
 import CustomLoader from "./Loader";
-import search from "./search";
 import { LoadingButton } from "@mui/lab";
 
 const Main = ({ handleClick, handlePdp }) => {

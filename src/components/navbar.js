@@ -39,12 +39,7 @@ const Navbar = () => {
             </span>
             <span>{lengthItems?.length}</span>
           </Link>
-
-
-          
         </div>
-
-
       </div>
     </div>
   );
