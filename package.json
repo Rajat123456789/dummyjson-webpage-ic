@@ -1,6 +1,5 @@
 {
-  "name": "ecommerse_app",
-  "homepage": "https://madhuri96.github.io/Ecommerce_app",
+  "name": "ecommerce-app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
